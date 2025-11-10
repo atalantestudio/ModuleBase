@@ -24,7 +24,11 @@
 #define ARCHITECTURE_AMD64 1
 #define ARCHITECTURE_INTEL_X86 2
 
-#define STANDARD __cplusplus
+#if defined(_MSVC_LANG)
+	#define STANDARD _MSVC_LANG
+#elif
+	#define STANDARD __cplusplus
+#endif
 
 #if defined(__clang__)
 	#define COMPILER COMPILER_CLANG
