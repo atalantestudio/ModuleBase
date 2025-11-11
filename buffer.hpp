@@ -90,7 +90,7 @@ namespace ProjectA {
 				return &pointer[_count];
 			}
 
-		private:
+		protected:
 			uint64 _count = 0;
 			T* pointer = nullptr;
 	};

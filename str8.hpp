@@ -9,25 +9,56 @@ namespace ProjectA {
 				buffer(count)
 			{}
 
-			str8(const char8* string) :
-				buffer(std::strlen(string))
+			// NOTE: Returns a null-terminated string.
+			str8(const char8* characters) :
+				buffer(std::strlen(characters) + 1)
 			{
-				std::copy_n(string, count(), begin());
+				// Exclude '\0' from the character count.
+				_count -= 1;
+
+				std::copy_n(characters, _count, begin());
+
+				pointer[_count] = '\0';
 			}
 
 			str8(const std::string& string) :
-				buffer(string.size())
+				buffer(string.size() + 1)
 			{
-				std::copy_n(&string[0], count(), begin());
+				// Exclude '\0' from the character count.
+				_count -= 1;
+
+				std::copy(string.begin(), string.end(), begin());
+
+				pointer[_count] = '\0';
 			}
 
 			str8(const buffer<char8>& buffer) :
-				buffer(buffer)
-			{}
+				buffer(buffer.count() + 1)
+			{
+				// Exclude '\0' from the character count.
+				_count -= 1;
+
+				std::copy(buffer.begin(), buffer.end(), begin());
+
+				pointer[_count] = '\0';
+			}
 
 			str8(buffer<char8>&& buffer) :
 				buffer(buffer)
 			{}
+
+			str8& operator =(const str8& string) {
+				delete[] pointer;
+
+				pointer = new char8[string._count + 1]();
+				_count = string._count;
+
+				std::copy(string.begin(), string.end(), pointer);
+
+				pointer[_count] = '\0';
+
+				return *this;
+			}
 
 			uint64 find(char8 character, uint64 characterOffset) const {
 				while (characterOffset < count()) {
