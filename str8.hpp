@@ -1,4 +1,7 @@
-﻿#pragma once
+﻿// Copyright 2025 Atalante.
+// Licensed under MIT.
+
+#pragma once
 
 namespace ProjectA {
 	class str8 : public buffer<char8> {

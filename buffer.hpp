@@ -1,4 +1,7 @@
-﻿#pragma once
+﻿// Copyright 2025 Atalante.
+// Licensed under MIT.
+
+#pragma once
 
 namespace ProjectA {
 	// An owning and non-resizeable array of elements of type `T`.

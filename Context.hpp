@@ -1,3 +1,6 @@
+// Copyright 2025 Atalante.
+// Licensed under MIT.
+
 #pragma once
 
 // See https://sourceforge.net/p/predef/wiki/Standards.
