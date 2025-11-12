@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-// Returns a value with a single set bit at `index`.
+// Returns a number with a single set bit at `index`.
 #define BIT(index) (1 << (index))
 
 namespace ProjectA {
