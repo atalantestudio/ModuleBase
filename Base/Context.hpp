@@ -1,4 +1,4 @@
-// Copyright 2025 Atalante.
+﻿// Copyright 2025 Atalante.
 // Licensed under MIT.
 
 #pragma once
@@ -57,4 +57,10 @@
 	#define ARCHITECTURE ARCHITECTURE_INTEL_X86
 #else
 	#define ARCHITECTURE ARCHITECTURE_OTHER
+#endif
+
+#if STANDARD >= STANDARD_CPP17
+	#define CONSTEXPR_CPP17 constexpr
+#else
+	#define CONSTEXPR_CPP17
 #endif

@@ -1,4 +1,4 @@
-// Copyright 2025 Atalante.
+﻿// Copyright 2025 Atalante.
 // Licensed under MIT.
 
 #pragma once
@@ -9,13 +9,14 @@
 
 #include "Context.hpp"
 #include "Macros.hpp"
-#include "Types.hpp"
+
+#include "Aliases.hpp"
 #include "Limits.hpp"
 #include "Cast.hpp"
+#include "Utilities.hpp"
 #include "Bit.hpp"
-
-#include "buffer.hpp"
-#include "str8.hpp"
+#include "Types/sequence.hpp"
+#include "Types/view.hpp"
 
 #if OPERATING_SYSTEM == OPERATING_SYSTEM_WINDOWS
 	#include <Windows.h>
