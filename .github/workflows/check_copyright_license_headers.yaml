@@ -20,7 +20,6 @@ jobs:
           chmod +x ./scripts/check_copyright_license_headers.sh
           ./scripts/check_copyright_license_headers.sh
         env:
-          HEADER: "// Copyright 2025 Atalante.\n// Licensed under MIT."
           GITHUB_BASE_REF: ${{github.base_ref}}
           GITHUB_HEAD_REF: ${{github.head_ref}}
           GITHUB_TREE_URL: ${{github.server_url}}/${{github.repository}}/tree/${{github.head_ref}}
