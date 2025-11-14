@@ -6,7 +6,7 @@
 #include "Types/base_sequence.hpp"
 #include "Types/base_view.hpp"
 
-namespace ProjectA {
+namespace USER_NAMESPACE {
 	// A container that encapsulates a dynamic size array.
 	// Unlike `std::vector<T>`, `sequence<T>` is not resizeable.
 	// It *should* be used when the number of elements is known at runtime, before creating the sequence.
@@ -42,5 +42,14 @@ namespace ProjectA {
 			sequence<char8>(const sequence<char8>& sequence) :
 				sequence(sequence.begin(), sequence.count())
 			{}
+
+			void operator=(const sequence<char8>& sequence) {
+				free(_data);
+
+				_count = sequence._count;
+				_data = allocate(_count + 1);
+
+				copy(sequence.begin(), sequence.end(), _data);
+			}
 	};
 }

@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace ProjectA {
+namespace USER_NAMESPACE {
 	template<typename T>
 	inline void copy(const T* sourceBegin, const T* sourceEnd, T* destination) {
 		std::copy(sourceBegin, sourceEnd, destination);

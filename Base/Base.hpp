@@ -7,6 +7,10 @@
 #include <cstdint>
 #include <cstdlib>
 
+#ifndef USER_NAMESPACE
+	#error "ModuleBase: Please define USER_NAMESPACE with a user namespace name."
+#endif
+
 #include "Context.hpp"
 #include "Macros.hpp"
 

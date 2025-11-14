@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace ProjectA {
+namespace USER_NAMESPACE {
 	typedef std::int8_t sint8;
 	typedef std::int16_t sint16;
 	typedef std::int32_t sint32;
