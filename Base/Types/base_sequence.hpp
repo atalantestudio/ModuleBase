@@ -3,11 +3,11 @@
 
 #pragma once
 
-namespace ProjectA {
+namespace USER_NAMESPACE {
 	// TODO(upgrade): Allocate from arena.
 	template<typename T>
 	class base_sequence {
-		private:
+		protected:
 			static T* allocate(uint64 count) {
 				return new T[count]();
 			}

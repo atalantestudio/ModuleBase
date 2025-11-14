@@ -6,7 +6,7 @@
 // Returns a number with a single set bit at `index`.
 #define BIT(index) (1 << (index))
 
-namespace ProjectA {
+namespace USER_NAMESPACE {
 	// Returns the minimum number of bits necessary to store `value`.
 	inline uint8 countBits(uint64 value) {
 		uint8 bitCount = 0;
