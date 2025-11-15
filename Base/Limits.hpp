@@ -58,6 +58,21 @@ namespace USER_NAMESPACE {
 		return DBL_MIN;
 	}
 
+	template<>
+	constexpr char8 min() noexcept {
+		return INT8_MIN;
+	}
+
+	template<>
+	constexpr char16 min() noexcept {
+		return INT16_MIN;
+	}
+
+	template<>
+	constexpr char32 min() noexcept {
+		return INT32_MIN;
+	}
+
 	// Returns the maximum value representable by `T`.
 	template<typename T>
 	constexpr T max() noexcept;
@@ -110,5 +125,20 @@ namespace USER_NAMESPACE {
 	template<>
 	constexpr float64 max() noexcept {
 		return DBL_MAX;
+	}
+
+	template<>
+	constexpr char8 max() noexcept {
+		return INT8_MAX;
+	}
+
+	template<>
+	constexpr char16 max() noexcept {
+		return INT16_MAX;
+	}
+
+	template<>
+	constexpr char32 max() noexcept {
+		return INT32_MAX;
 	}
 }
