@@ -11,27 +11,17 @@
 #define STANDARD_CPP20 202002l
 #define STANDARD_CPP23 202302l
 
-// See https://sourceforge.net/p/predef/wiki/Compilers.
-#define COMPILER_OTHER 0
-#define COMPILER_CLANG 1
-#define COMPILER_GCC 2
-#define COMPILER_MSVC 3
-
-// See https://sourceforge.net/p/predef/wiki/OperatingSystems.
-#define OPERATING_SYSTEM_OTHER 0
-#define OPERATING_SYSTEM_LINUX 1
-#define OPERATING_SYSTEM_WINDOWS 2
-
-// See https://sourceforge.net/p/predef/wiki/Architectures.
-#define ARCHITECTURE_OTHER 0
-#define ARCHITECTURE_AMD64 1
-#define ARCHITECTURE_INTEL_X86 2
-
 #if defined(_MSVC_LANG)
 	#define STANDARD _MSVC_LANG
 #elif
 	#define STANDARD __cplusplus
 #endif
+
+// See https://sourceforge.net/p/predef/wiki/Compilers.
+#define COMPILER_OTHER 0
+#define COMPILER_CLANG 1
+#define COMPILER_GCC 2
+#define COMPILER_MSVC 3
 
 #if defined(__clang__)
 	#define COMPILER COMPILER_CLANG
@@ -43,6 +33,11 @@
 	#define COMPILER COMPILER_OTHER
 #endif
 
+// See https://sourceforge.net/p/predef/wiki/OperatingSystems.
+#define OPERATING_SYSTEM_OTHER 0
+#define OPERATING_SYSTEM_LINUX 1
+#define OPERATING_SYSTEM_WINDOWS 2
+
 #if defined(__gnu_linux__)
 	#define OPERATING_SYSTEM OPERATING_SYSTEM_LINUX
 #elif defined(_WIN16) || defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__TOS_WIN__) || defined(__WINDOWS__)
@@ -50,6 +45,11 @@
 #else
 	#define OPERATING_SYSTEM OPERATING_SYSTEM_OTHER
 #endif
+
+// See https://sourceforge.net/p/predef/wiki/Architectures.
+#define ARCHITECTURE_OTHER 0
+#define ARCHITECTURE_AMD64 1
+#define ARCHITECTURE_INTEL_X86 2
 
 #if defined(__amd64) || defined(__amd64__) || defined(__x86_64__) || defined(__x86_64) || defined(_M_X64) || defined(_M_AMD64)
 	#define ARCHITECTURE ARCHITECTURE_AMD64
