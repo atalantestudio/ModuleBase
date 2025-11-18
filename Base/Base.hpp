@@ -21,7 +21,3 @@
 #include "Bit.hpp"
 #include "Types/sequence.hpp"
 #include "Types/view.hpp"
-
-#if OPERATING_SYSTEM == OPERATING_SYSTEM_WINDOWS
-	#include <Windows.h>
-#endif
