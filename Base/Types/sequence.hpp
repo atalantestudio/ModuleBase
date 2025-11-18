@@ -51,5 +51,9 @@ namespace USER_NAMESPACE {
 
 				copy(sequence.begin(), sequence.end(), _data);
 			}
+
+			operator std::string() const {
+				return std::string(_data, _count);
+			}
 	};
 }
