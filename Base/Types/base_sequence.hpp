@@ -73,14 +73,12 @@ namespace USER_NAMESPACE {
 			}
 
 			const T& operator[](uint64 index) const {
-				// TODO: Always allow 0?
 				ASSERT(index < _count);
 
 				return _data[index];
 			}
 
 			T& operator[](uint64 index) {
-				// TODO: Always allow 0?
 				ASSERT(index < _count);
 
 				return _data[index];
