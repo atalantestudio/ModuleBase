@@ -5,10 +5,13 @@
 
 #define ABORT() std::abort()
 
-// See https://stackoverflow.com/a/49079078.
-#if BUILD_MODE == BUILD_MODE_DEBUG
+#ifdef NDEBUG
+	#define ASSERT(expression)
+	#define BREAKPOINT()
+#else
 	#include <cassert>
 
+	// See https://stackoverflow.com/a/49079078.
 	#if COMPILER == COMPILER_CLANG
 		#if __has_builtin(__builtin_debugtrap)
 			#define BREAKPOINT() __builtin_debugtrap()
@@ -24,7 +27,4 @@
 	#endif
 
 	#define ASSERT(expression) assert(expression)
-#else
-	#define ASSERT(expression)
-	#define BREAKPOINT()
 #endif
