@@ -5,7 +5,7 @@
 
 #include "Types/base_view.hpp"
 
-namespace USER_NAMESPACE {
+namespace atl {
 	template<typename T>
 	class view : public base_view<T> {
 		public:

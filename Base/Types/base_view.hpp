@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace USER_NAMESPACE {
+namespace atl {
 	template<typename T>
 	class base_view {
 		public:
