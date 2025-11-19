@@ -3,28 +3,28 @@
 
 #pragma once
 
-#define ABORT() std::abort()
+#define ATL_ABORT() std::abort()
 
 #ifdef NDEBUG
-	#define ASSERT(expression)
-	#define BREAKPOINT()
+	#define ATL_ASSERT(expression)
+	#define ATL_BREAKPOINT()
 #else
 	#include <cassert>
 
 	// See https://stackoverflow.com/a/49079078.
-	#if COMPILER == COMPILER_CLANG
+	#if ATL_COMPILER == ATL_COMPILER_CLANG
 		#if __has_builtin(__builtin_debugtrap)
-			#define BREAKPOINT() __builtin_debugtrap()
+			#define ATL_BREAKPOINT() __builtin_debugtrap()
 		#else
-			#define BREAKPOINT()
+			#define ATL_BREAKPOINT()
 		#endif
-	#elif COMPILER == COMPILER_GCC
-		#define BREAKPOINT() __builtin_trap()
-	#elif COMPILER == COMPILER_MSVC
-		#define BREAKPOINT() __debugbreak()
+	#elif ATL_COMPILER == ATL_COMPILER_GCC
+		#define ATL_BREAKPOINT() __builtin_trap()
+	#elif ATL_COMPILER == ATL_COMPILER_MSVC
+		#define ATL_BREAKPOINT() __debugbreak()
 	#else
-		#define BREAKPOINT()
+		#define ATL_BREAKPOINT()
 	#endif
 
-	#define ASSERT(expression) assert(expression)
+	#define ATL_ASSERT(expression) assert(expression)
 #endif

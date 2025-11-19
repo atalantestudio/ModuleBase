@@ -59,7 +59,7 @@ namespace atl {
 			}
 
 			void operator=(base_sequence<T>&& sequence) noexcept {
-				ASSERT(_data != sequence._data);
+				ATL_ASSERT(_data != sequence._data);
 
 				_count = sequence._count;
 				_data = sequence._data;
@@ -73,13 +73,13 @@ namespace atl {
 			}
 
 			const T& operator[](uint64 index) const {
-				ASSERT(index < _count);
+				ATL_ASSERT(index < _count);
 
 				return _data[index];
 			}
 
 			T& operator[](uint64 index) {
-				ASSERT(index < _count);
+				ATL_ASSERT(index < _count);
 
 				return _data[index];
 			}
