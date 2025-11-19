@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace USER_NAMESPACE {
+namespace atl {
 	// Returns the minimum value representable by `T`.
 	template<typename T>
 	constexpr T min() noexcept;

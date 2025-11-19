@@ -6,7 +6,7 @@
 #include "Types/base_sequence.hpp"
 #include "Types/base_view.hpp"
 
-namespace USER_NAMESPACE {
+namespace atl {
 	// A container that encapsulates a dynamic size array.
 	// Unlike `std::vector<T>`, `sequence<T>` is not resizeable.
 	// It *should* be used when the number of elements is known at runtime, before creating the sequence.

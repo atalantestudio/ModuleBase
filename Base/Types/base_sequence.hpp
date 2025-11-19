@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace USER_NAMESPACE {
+namespace atl {
 	// TODO(upgrade): Allocate from arena.
 	template<typename T>
 	class base_sequence {
