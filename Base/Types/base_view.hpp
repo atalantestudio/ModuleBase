@@ -24,7 +24,7 @@ namespace atl {
 			}
 
 			const T& operator[](uint64 index) const {
-				ASSERT(index < _count);
+				ATL_ASSERT(index < _count);
 
 				return _data[index];
 			}

@@ -4,7 +4,7 @@
 #pragma once
 
 // Returns a number with a single set bit at `index`.
-#define BIT(index) (1 << (index))
+#define ATL_BIT(index) (1 << (index))
 
 namespace atl {
 	// Returns the minimum number of bits necessary to store `value`.
