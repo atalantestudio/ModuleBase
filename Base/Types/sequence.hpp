@@ -39,17 +39,17 @@ namespace atl {
 				sequence<char8>(&view[0], view.count())
 			{}
 
-			sequence<char8>(const sequence<char8>& sequence) :
-				sequence(sequence.begin(), sequence.count())
+			sequence<char8>(const sequence<char8>& _sequence) :
+				sequence(_sequence.begin(), _sequence.count())
 			{}
 
-			void operator=(const sequence<char8>& sequence) {
+			void operator=(const sequence<char8>& _sequence) {
 				free(_data);
 
-				_count = sequence._count;
+				_count = _sequence._count;
 				_data = allocate(_count + 1);
 
-				copy(sequence.begin(), sequence.end(), _data);
+				copy(_sequence.begin(), _sequence.end(), _data);
 			}
 
 			operator std::string() const {
