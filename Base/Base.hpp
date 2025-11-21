@@ -4,9 +4,11 @@
 #ifndef ATL_MODULE_BASE
 	#define ATL_MODULE_BASE
 
+	#include <algorithm>
 	#include <cfloat>
 	#include <cstdint>
 	#include <cstdlib>
+	#include <string>
 
 	#include "Context.hpp"
 	#include "Macros.hpp"
