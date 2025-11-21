@@ -13,7 +13,7 @@
 
 #if defined(_MSVC_LANG)
 	#define ATL_STANDARD _MSVC_LANG
-#elif
+#else
 	#define ATL_STANDARD __cplusplus
 #endif
 
