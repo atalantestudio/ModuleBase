@@ -32,7 +32,7 @@ namespace atl {
 			}
 
 			sequence<char8>(const char8* data) :
-				sequence<char8>(data, std::strlen(data))
+				sequence<char8>(data, countCharacters(data))
 			{}
 
 			sequence<char8>(base_view<char8> view) :
