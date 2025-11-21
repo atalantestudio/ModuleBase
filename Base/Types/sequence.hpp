@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "Types/base_sequence.hpp"
-#include "Types/base_view.hpp"
+#include "base_sequence.hpp"
+#include "base_view.hpp"
 
 namespace atl {
 	// A container that encapsulates a dynamic size array.
