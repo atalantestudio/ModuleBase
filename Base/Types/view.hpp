@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "Types/base_view.hpp"
+#include "base_view.hpp"
 
 namespace atl {
 	template<typename T>
