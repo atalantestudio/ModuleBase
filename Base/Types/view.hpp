@@ -17,9 +17,8 @@ namespace atl {
 		public:
 			using base_view<char8>::base_view;
 
-			// TODO: Add support for versions below C++17.
-			ATL_CONSTEXPR_CPP17 view<char8>(const char8* data) :
-				view<char8>(data, std::char_traits<char8>::length(data))
+			constexpr view<char8>(const char8* data) :
+				view<char8>(data, countCharacters(data))
 			{}
 
 			uint64 find(char8 character, uint64 characterOffset) const {
