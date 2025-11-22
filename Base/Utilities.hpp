@@ -1,4 +1,4 @@
-// Copyright 2025 Atalante.
+﻿// Copyright 2025 Atalante.
 // Licensed under MIT.
 
 #pragma once
@@ -9,17 +9,15 @@ namespace atl {
 		std::copy(sourceBegin, sourceEnd, destination);
 	}
 
-	inline uint64 countCharacters(const char8* string) {
-		uint64 count = 0;
-
-		while (true) {
-			if (string[count] == '\0') {
-				break;
+	inline constexpr uint64 countCharacters(const char8* characters) {
+		#if ATL_STANDARD >= ATL_STANDARD_CPP17
+			return std::char_traits<char8>::length(characters);
+		#else
+			if (*characters == '\0') {
+				return 0;
 			}
 
-			count += 1;
-		}
-
-		return count;
+			return 1 + countCharacters(characters + 1);
+		#endif
 	}
 }
