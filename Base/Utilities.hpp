@@ -13,11 +13,7 @@ namespace atl {
 		#if ATL_STANDARD >= ATL_STANDARD_CPP17
 			return std::char_traits<char8>::length(characters);
 		#else
-			if (*characters == '\0') {
-				return 0;
-			}
-
-			return 1 + countCharacters(characters + 1);
+			return *characters == '\0' ? 0 : 1 + countCharacters(characters + 1);
 		#endif
 	}
 }
