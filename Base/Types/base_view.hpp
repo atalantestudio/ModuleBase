@@ -38,7 +38,7 @@ namespace atl {
 			}
 
 		protected:
-			const uint64 _count = 0;
+			uint64 _count = 0;
 			const T* _data = nullptr;
 	};
 }
