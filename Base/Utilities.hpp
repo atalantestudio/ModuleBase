@@ -3,6 +3,9 @@
 
 #pragma once
 
+#define ATL_MAX(a, b) a > b ? a : b
+#define ATL_MIN(a, b) a < b ? a : b
+
 namespace atl {
 	template<typename T>
 	inline void copy(const T* sourceBegin, const T* sourceEnd, T* destination) {
