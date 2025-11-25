@@ -20,4 +20,6 @@
 	#include "Bit.hpp"
 	#include "Types/sequence.hpp"
 	#include "Types/view.hpp"
+	#include "Comparator.hpp"
+	#include "Hash.hpp"
 #endif

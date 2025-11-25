@@ -21,6 +21,14 @@ namespace atl {
 				view<char8>(data, countCharacters(data))
 			{}
 
+			bool operator==(view<char8> other) const {
+				return _count == other._count && std::strncmp(_data, other._data, _count) == 0;
+			}
+
+			bool operator!=(view<char8> other) const {
+				return !operator==(other);
+			}
+
 			uint64 find(char8 character, uint64 characterOffset) const {
 				while (characterOffset < count()) {
 					if (_data[characterOffset] == character) {
