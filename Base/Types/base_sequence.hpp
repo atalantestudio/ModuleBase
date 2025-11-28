@@ -59,7 +59,9 @@ namespace atl {
 			}
 
 			void operator=(base_sequence<T>&& sequence) noexcept {
-				ATL_ASSERT(_data != sequence._data);
+				if (_data == sequence._data) {
+					return;
+				}
 
 				_count = sequence._count;
 				_data = sequence._data;
