@@ -56,6 +56,14 @@ namespace atl {
 				copy(_sequence.begin(), _sequence.end(), _data);
 			}
 
+			bool operator==(const sequence<char8>& other) const {
+				return _count == other._count && std::strncmp(_data, other._data, _count) == 0;
+			}
+
+			bool operator!=(const sequence<char8>& other) const {
+				return !operator==(other);
+			}
+
 			operator std::string() const {
 				return std::string(_data, _count);
 			}
