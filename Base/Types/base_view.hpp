@@ -7,7 +7,7 @@ namespace atl {
 	template<typename T>
 	class base_view {
 		public:
-			explicit base_view() = default;
+			base_view() = default;
 
 			base_view<T>(const base_sequence<T>& sequence) :
 				_count(sequence.count()),
