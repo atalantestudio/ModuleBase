@@ -79,6 +79,11 @@ namespace atl {
 					return std::string_view(_data, _count);
 				}
 			#endif
+
+			friend std::ostream& operator<<(std::ostream& stream, view<char8> view) {
+				// TODO: Handle width, fill character, alignment, etc.
+				return stream.write(&view[0], view.count());
+			}
 	};
 
 	inline uint64 getPostReplacementCharacterCount(view<char8> text, view<char8> pattern, view<char8> replacement) {

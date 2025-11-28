@@ -59,5 +59,9 @@ namespace atl {
 			operator std::string() const {
 				return std::string(_data, _count);
 			}
+
+			friend std::ostream& operator<<(std::ostream& stream, const sequence<char8>& sequence) {
+				return stream << &sequence[0];
+			}
 	};
 }
