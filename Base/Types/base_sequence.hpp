@@ -73,13 +73,13 @@ namespace atl {
 			}
 
 			const T& operator[](uint64 index) const {
-				ATL_ASSERT(index < _count);
+				ATL_ASSERT(index == 0 || index < _count);
 
 				return _data[index];
 			}
 
 			T& operator[](uint64 index) {
-				ATL_ASSERT(index < _count);
+				ATL_ASSERT(index == 0 || index < _count);
 
 				return _data[index];
 			}
