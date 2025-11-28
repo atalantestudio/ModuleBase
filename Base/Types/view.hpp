@@ -80,4 +80,58 @@ namespace atl {
 				}
 			#endif
 	};
+
+	inline uint64 getPostReplacementCharacterCount(view<char8> text, view<char8> pattern, view<char8> replacement) {
+		uint64 count = 0;
+		uint64 offset = 0;
+		uint64 nextOffset = 0;
+
+		while (offset < text.count()) {
+			nextOffset = text.find(pattern, offset);
+
+			count += nextOffset - offset;
+
+			if (nextOffset < text.count()) {
+				count += replacement.count();
+			}
+
+			offset = nextOffset + pattern.count();
+		}
+
+		return count;
+	}
+
+	inline sequence<char8> replace(view<char8> text, view<char8> pattern, view<char8> replacement) {
+		const uint64 count = getPostReplacementCharacterCount(text, pattern, replacement);
+
+		sequence<char8> replacedText(count + 1);
+		uint64 offset = 0;
+		uint64 nextOffset = 0;
+		uint64 replacedOffset = 0;
+
+		while (offset < text.count()) {
+			nextOffset = text.find(pattern, offset);
+
+			const char8* end = text.end();
+
+			if (nextOffset < text.count()) {
+				end = &text[nextOffset];
+			}
+
+			copy(&text[offset], end, &replacedText[replacedOffset]);
+
+			replacedOffset += nextOffset - offset;
+
+			if (replacedOffset >= text.count()) {
+				break;
+			}
+
+			copy(replacement.begin(), replacement.end(), &replacedText[replacedOffset]);
+
+			replacedOffset += replacement.count();
+			offset = nextOffset + pattern.count();
+		}
+
+		return replacedText;
+	}
 }
