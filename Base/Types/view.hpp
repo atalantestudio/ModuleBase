@@ -21,6 +21,12 @@ namespace atl {
 				view<char8>(data, countCharacters(data))
 			{}
 
+			#if ATL_STANDARD >= ATL_STANDARD_CPP17
+				constexpr view<char8>(std::string_view stringView) :
+					view<char8>(stringView.data(), stringView.size())
+				{}
+			#endif
+
 			bool operator==(view<char8> other) const {
 				return _count == other._count && std::strncmp(_data, other._data, _count) == 0;
 			}
@@ -67,5 +73,11 @@ namespace atl {
 
 				return characterOffset;
 			}
+
+			#if ATL_STANDARD >= ATL_STANDARD_CPP17
+				operator std::string_view() const {
+					return std::string_view(_data, _count);
+				}
+			#endif
 	};
 }

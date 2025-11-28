@@ -11,7 +11,7 @@ namespace atl {
 
 			base_view<T>(const base_sequence<T>& sequence) :
 				_count(sequence.count()),
-				_data(sequence.begin())
+				_data(&sequence[0])
 			{}
 
 			constexpr explicit base_view<T>(const char8* data, uint64 count) :

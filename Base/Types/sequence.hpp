@@ -39,8 +39,12 @@ namespace atl {
 				sequence<char8>(&view[0], view.count())
 			{}
 
+			sequence<char8>(const std::string& string) :
+				sequence<char8>(string.data(), string.size())
+			{}
+
 			sequence<char8>(const sequence<char8>& _sequence) :
-				sequence(_sequence.begin(), _sequence.count())
+				sequence<char8>(&_sequence[0], _sequence.count())
 			{}
 
 			void operator=(const sequence<char8>& _sequence) {
