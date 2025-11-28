@@ -7,9 +7,16 @@
 template<>
 struct std::hash<atl::view<atl::char8>> {
 	std::size_t operator()(const atl::view<atl::char8>& key) const {
-		const std::size_t dataHash = std::hash<const void*>{}(key.begin());
-		const std::size_t countHash = std::hash<atl::uint64>{}(key.count());
+		std::size_t hash = 14695981039346656037;
+		atl::uint64 characterIndex = 0;
 
-		return dataHash ^ (countHash + 0x9e3779b97f4a7c15ULL + (dataHash << 6) + (dataHash >> 2));
+		while (characterIndex < key.count()) {
+			hash ^= key[characterIndex];
+			hash *= 1099511628211;
+
+			characterIndex += 1;
+		}
+
+		return hash;
 	}
 };
