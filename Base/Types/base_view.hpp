@@ -9,14 +9,18 @@ namespace atl {
 		public:
 			base_view() = default;
 
-			base_view<T>(const base_sequence<T>& sequence) :
-				_count(sequence.count()),
-				_data(&sequence[0])
-			{}
+			// TODO
+			/* constexpr base_view<T>(const T* data) :
+				base_view<T>(data, countElements<T>(data))
+			{} */
 
-			constexpr explicit base_view<T>(const char8* data, uint64 count) :
+			constexpr explicit base_view<T>(const T* data, uint64 count) :
 				_count(count),
 				_data(data)
+			{}
+
+			base_view<T>(const base_sequence<T>& sequence) :
+				base_view<T>(&sequence[0], sequence.count())
 			{}
 
 			uint64 count() const {

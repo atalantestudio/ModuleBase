@@ -35,7 +35,7 @@ namespace atl {
 				return !operator==(other);
 			}
 
-			uint64 find(char8 character, uint64 characterOffset) const {
+			index find(char8 character, index characterOffset) const {
 				while (characterOffset < count()) {
 					if (_data[characterOffset] == character) {
 						break;
@@ -47,9 +47,9 @@ namespace atl {
 				return characterOffset;
 			}
 
-			uint64 find(view<char8> view, uint64 characterOffset) const {
-				uint64 characterIndex;
-				uint64 viewCharacterIndex;
+			index find(view<char8> view, index characterOffset) const {
+				index characterIndex;
+				index viewCharacterIndex;
 
 				while (characterOffset < count()) {
 					if (view.count() > count() - characterOffset) {
@@ -86,33 +86,27 @@ namespace atl {
 			}
 	};
 
-	inline uint64 getPostReplacementCharacterCount(view<char8> text, view<char8> pattern, view<char8> replacement) {
-		uint64 count = 0;
-		uint64 offset = 0;
-		uint64 nextOffset = 0;
+	// The EOF character is included in the result.
+	inline index getPostReplacementCharacterCount(view<char8> text, view<char8> pattern, view<char8> replacement) {
+		index offset = 0;
+		index patternCount = 0;
 
 		while (offset < text.count()) {
-			nextOffset = text.find(pattern, offset);
+			offset = text.find(pattern, offset) + pattern.count();
 
-			count += nextOffset - offset;
-
-			if (nextOffset < text.count()) {
-				count += replacement.count();
-			}
-
-			offset = nextOffset + pattern.count();
+			patternCount += 1;
 		}
 
-		return count;
+		return text.count() + patternCount * (static_cast<sint32>(replacement.count()) - static_cast<sint32>(pattern.count()));
 	}
 
 	inline sequence<char8> replace(view<char8> text, view<char8> pattern, view<char8> replacement) {
-		const uint64 count = getPostReplacementCharacterCount(text, pattern, replacement);
+		const index count = getPostReplacementCharacterCount(text, pattern, replacement);
 
-		sequence<char8> replacedText(count + 1);
-		uint64 offset = 0;
-		uint64 nextOffset = 0;
-		uint64 replacedOffset = 0;
+		sequence<char8> replacedText(count);
+		index offset = 0;
+		index nextOffset = 0;
+		index replacedOffset = 0;
 
 		while (offset < text.count()) {
 			nextOffset = text.find(pattern, offset);
@@ -127,7 +121,7 @@ namespace atl {
 
 			replacedOffset += nextOffset - offset;
 
-			if (replacedOffset >= text.count()) {
+			if (replacedOffset + 1 >= replacedText.count()) {
 				break;
 			}
 

@@ -20,4 +20,6 @@ namespace atl {
 
 	typedef float float32;
 	typedef double float64;
+
+	typedef std::size_t index;
 }

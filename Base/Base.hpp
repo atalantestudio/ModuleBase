@@ -18,6 +18,7 @@
 	#include "Cast.hpp"
 	#include "Utilities.hpp"
 	#include "Bit.hpp"
+	#include "Types/range.hpp"
 	#include "Types/sequence.hpp"
 	#include "Types/view.hpp"
 	#include "Comparator.hpp"
