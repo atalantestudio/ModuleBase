@@ -50,12 +50,12 @@ namespace atl {
 
 	template<>
 	constexpr float32 min() noexcept {
-		return FLT_MIN;
+		return -FLT_MAX;
 	}
 
 	template<>
 	constexpr float64 min() noexcept {
-		return DBL_MIN;
+		return -DBL_MAX;
 	}
 
 	template<>
