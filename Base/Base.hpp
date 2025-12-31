@@ -9,6 +9,7 @@
 	#include <cstdint>
 	#include <cstdlib>
 	#include <string>
+	#include <unordered_map>
 
 	#include "Context.hpp"
 	#include "Macros.hpp"
