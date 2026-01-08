@@ -86,6 +86,36 @@ namespace atl {
 			}
 	};
 
+	// Removes whitespace (' ' and '\') at the start of the text.
+	// Line feeds are not trimmed.
+	inline view<char8> trimLeft(view<char8> text) {
+		index start = 0;
+
+		while (start < text.count() && (text[start] == ' ' || text[start] == '\t')) {
+			start += 1;
+		}
+
+		return view<char8>(&text[start], text.count() - start);
+	}
+
+	// Removes whitespace (' ' and '\') at the end of the text.
+	// Line feeds are not trimmed.
+	inline view<char8> trimRight(view<char8> text) {
+		sint32 end = static_cast<sint32>(text.count()) - 1;
+
+		while (end >= 0 && (text[end] == ' ' || text[end] == '\t')) {
+			end -= 1;
+		}
+
+		return view<char8>(&text[0], end + 1);
+	}
+
+	// Removes whitespace (' ' and '\') around the text.
+	// Line feeds are not trimmed.
+	inline view<char8> trim(view<char8> text) {
+		return trimLeft(trimRight(text));
+	}
+
 	// The EOF character is included in the result.
 	inline index getPostReplacementCharacterCount(view<char8> text, view<char8> pattern, view<char8> replacement) {
 		index offset = 0;
