@@ -63,6 +63,8 @@ namespace atl {
 					return;
 				}
 
+				free(_data);
+
 				_count = sequence._count;
 				_data = sequence._data;
 
