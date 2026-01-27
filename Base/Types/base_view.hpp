@@ -14,6 +14,11 @@ namespace atl {
 				base_view<T>(data, countElements<T>(data))
 			{} */
 
+			base_view<T>(std::initializer_list<T> list) :
+				_count(list.size()),
+				_data(list.begin())
+			{}
+
 			constexpr explicit base_view<T>(const T* data, uint64 count) :
 				_count(count),
 				_data(data)
