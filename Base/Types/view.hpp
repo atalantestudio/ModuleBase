@@ -133,7 +133,7 @@ namespace atl {
 	inline sequence<char8> replace(view<char8> text, view<char8> pattern, view<char8> replacement) {
 		const index count = getPostReplacementCharacterCount(text, pattern, replacement);
 
-		sequence<char8> replacedText(count);
+		sequence<char8> replacedText(count + 1);
 		index offset = 0;
 		index nextOffset = 0;
 		index replacedOffset = 0;
