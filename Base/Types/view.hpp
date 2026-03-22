@@ -166,7 +166,7 @@ namespace atl {
 
 	template<typename T>
 	inline auto find(const std::unordered_map<sequence<char8>, T>& map, view<char8> key) {
-		std::unordered_map<sequence<char8>, T>::const_iterator iterator = map.begin();
+		typename std::unordered_map<sequence<char8>, T>::const_iterator iterator = map.begin();
 
 		while (iterator != map.end()) {
 			if (iterator->first == key) {
