@@ -23,6 +23,8 @@ namespace atl {
 		public:
 			using base_sequence<char8>::base_sequence;
 
+			sequence<char8>() = default;
+
 			explicit sequence<char8>(const char8* data, uint64 count) :
 				sequence<char8>(count + 1)
 			{
