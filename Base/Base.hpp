@@ -8,6 +8,7 @@
 	#include <cfloat>
 	#include <cstdint>
 	#include <cstdlib>
+	#include <cstring>
 	#include <string>
 	#include <unordered_map>
 
