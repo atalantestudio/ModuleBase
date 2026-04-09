@@ -6,7 +6,7 @@
 namespace atl {
 	template<typename O, typename I>
 	inline O function_cast(I function) {
-		return reinterpret_cast<O>(function);
+		return reinterpret_cast<O>(reinterpret_cast<void (*)()>(function));
 	}
 
 	template<typename O, typename I>

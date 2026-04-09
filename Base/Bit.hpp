@@ -25,7 +25,7 @@ namespace atl {
 	inline uint8 countSetBits(uint32 value) {
 		value -= (value >> 1 & 0xdb6db6db) + (value >> 2 & 0x49249249);
 
-		const uint8 setBitCount = static_cast<uint8>((value + (value >> 3) & 0xc71c71c7) % 63);
+		const uint8 setBitCount = static_cast<uint8>(((value + (value >> 3)) & 0xc71c71c7) % 63);
 
 		return setBitCount;
 	}
