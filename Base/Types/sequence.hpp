@@ -23,9 +23,9 @@ namespace atl {
 		public:
 			using base_sequence<char8>::base_sequence;
 
-			sequence<char8>() = default;
+			sequence() = default;
 
-			explicit sequence<char8>(const char8* data, uint64 count) :
+			explicit sequence(const char8* data, uint64 count) :
 				sequence<char8>(count + 1)
 			{
 				_count -= 1;
@@ -33,19 +33,19 @@ namespace atl {
 				copy(data, data + _count, _data);
 			}
 
-			sequence<char8>(const char8* data) :
+			sequence(const char8* data) :
 				sequence<char8>(data, countCharacters(data))
 			{}
 
-			sequence<char8>(base_view<char8> view) :
+			sequence(base_view<char8> view) :
 				sequence<char8>(&view[0], view.count())
 			{}
 
-			sequence<char8>(const std::string& string) :
+			sequence(const std::string& string) :
 				sequence<char8>(string.data(), string.size())
 			{}
 
-			sequence<char8>(const sequence<char8>& _sequence) :
+			sequence(const sequence<char8>& _sequence) :
 				sequence<char8>(&_sequence[0], _sequence.count())
 			{}
 

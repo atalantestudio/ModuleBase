@@ -10,21 +10,21 @@ namespace atl {
 			base_view() = default;
 
 			// TODO
-			/* constexpr base_view<T>(const T* data) :
+			/* constexpr base_view(const T* data) :
 				base_view<T>(data, countElements<T>(data))
 			{} */
 
-			base_view<T>(std::initializer_list<T> list) :
+			base_view(std::initializer_list<T> list) :
 				_count(list.size()),
 				_data(list.begin())
 			{}
 
-			constexpr explicit base_view<T>(const T* data, uint64 count) :
+			constexpr explicit base_view(const T* data, uint64 count) :
 				_count(count),
 				_data(data)
 			{}
 
-			base_view<T>(const base_sequence<T>& sequence) :
+			base_view(const base_sequence<T>& sequence) :
 				base_view<T>(&sequence[0], sequence.count())
 			{}
 

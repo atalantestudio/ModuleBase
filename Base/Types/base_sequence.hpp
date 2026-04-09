@@ -17,26 +17,26 @@ namespace atl {
 			}
 
 		public:
-			base_sequence<T>() = default;
+			base_sequence() = default;
 
-			explicit base_sequence<T>(uint64 count) :
+			explicit base_sequence(uint64 count) :
 				_count(count),
 				_data(allocate(_count))
 			{}
 
-			base_sequence<T>(std::initializer_list<T> list) :
+			base_sequence(std::initializer_list<T> list) :
 				base_sequence<T>(list.size())
 			{
 				copy(list.begin(), list.end(), _data);
 			}
 
-			base_sequence<T>(const base_sequence<T>& sequence) :
+			base_sequence(const base_sequence<T>& sequence) :
 				base_sequence<T>(sequence._count)
 			{
 				copy(sequence.begin(), sequence.end(), _data);
 			}
 
-			base_sequence<T>(base_sequence<T>&& sequence) noexcept :
+			base_sequence(base_sequence<T>&& sequence) noexcept :
 				_count(sequence._count)
 			{
 				_data = sequence._data;
@@ -45,7 +45,7 @@ namespace atl {
 				sequence._data = nullptr;
 			}
 
-			~base_sequence<T>() {
+			~base_sequence() {
 				free(_data);
 			}
 

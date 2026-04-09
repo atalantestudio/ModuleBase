@@ -17,12 +17,12 @@ namespace atl {
 		public:
 			using base_view<char8>::base_view;
 
-			constexpr view<char8>(const char8* data) :
+			constexpr view(const char8* data) :
 				view<char8>(data, countCharacters(data))
 			{}
 
 			#if ATL_STANDARD >= ATL_STANDARD_CPP17
-				constexpr view<char8>(std::string_view stringView) :
+				constexpr view(std::string_view stringView) :
 					view<char8>(stringView.data(), stringView.size())
 				{}
 			#endif
