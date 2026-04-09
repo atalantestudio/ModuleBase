@@ -6,7 +6,7 @@
 template<>
 struct std::hash<atl::sequence<atl::char8>> {
 	std::size_t operator()(const atl::sequence<atl::char8>& key) const {
-		std::size_t hash = 14695981039346656037;
+		std::size_t hash = 14695981039346656037u;
 		atl::uint64 characterIndex = 0;
 
 		while (characterIndex < key.count()) {
@@ -24,7 +24,7 @@ struct std::hash<atl::sequence<atl::char8>> {
 template<>
 struct std::hash<atl::view<atl::char8>> {
 	std::size_t operator()(atl::view<atl::char8> key) const {
-		std::size_t hash = 14695981039346656037;
+		std::size_t hash = 14695981039346656037u;
 		atl::uint64 characterIndex = 0;
 
 		while (characterIndex < key.count()) {
