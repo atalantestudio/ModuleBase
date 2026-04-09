@@ -5,7 +5,7 @@
 
 #define ATL_ABORT() std::abort()
 
-#ifdef NDEBUG
+#if defined(NDEBUG)
 	#define ATL_ASSERT(expression)
 	#define ATL_BREAKPOINT()
 #else
