@@ -7,23 +7,21 @@ namespace atl {
 	template<typename T>
 	class base_view {
 		public:
+			/// Constructs an empty view.
 			base_view() = default;
 
-			// TODO
-			/* constexpr base_view(const T* data) :
-				base_view<T>(data, countElements<T>(data))
-			{} */
-
-			base_view(std::initializer_list<T> list) :
-				_count(list.size()),
-				_data(list.begin())
+			/// Constructs a view of 1 element.
+			constexpr base_view(const T& element) :
+				base_view<T>(&element, 1)
 			{}
 
+			/// Constructs a view of the first `count` elements pointed by `data`.
 			constexpr explicit base_view(const T* data, uint64 count) :
 				_count(count),
 				_data(data)
 			{}
 
+			/// Constructs a view covering the full range of `sequence`.
 			base_view(const base_sequence<T>& sequence) :
 				base_view<T>(&sequence[0], sequence.count())
 			{}
