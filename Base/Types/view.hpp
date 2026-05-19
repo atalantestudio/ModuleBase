@@ -122,8 +122,13 @@ namespace atl {
 		index patternCount = 0;
 
 		while (offset < text.count()) {
-			offset = text.find(pattern, offset) + pattern.count();
+			offset = text.find(pattern, offset);
 
+			if (offset >= text.count()) {
+				break;
+			}
+
+			offset += pattern.count();
 			patternCount += 1;
 		}
 
