@@ -21,6 +21,8 @@ namespace atl {
 				view<char8>(data, countCharacters(data))
 			{}
 
+			// TODO(ci/msvc): The pointer constructor is always chosen over this one,
+			// even when a static array with known size is provided.
 			/// Constructs a view of a static array of characters.
 			template<uint64 C>
 			constexpr view(const char8 (&data)[C]) :
