@@ -21,6 +21,12 @@ namespace atl {
 				view<char8>(data, countCharacters(data))
 			{}
 
+			/// Constructs a view of a static array of characters.
+			template<uint64 C>
+			constexpr view(const char8 (&data)[C]) :
+				view<char8>(data)
+			{}
+
 			#if ATL_STANDARD >= ATL_STANDARD_CPP17
 				constexpr view(std::string_view stringView) :
 					view<char8>(stringView.data(), stringView.size())

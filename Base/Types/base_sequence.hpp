@@ -4,7 +4,8 @@
 #pragma once
 
 namespace atl {
-	// TODO(upgrade): Allocate from arena.
+	// TODO(base_sequence): Allocate from arena.
+	/// A dynamically allocated, non resizeable list of elements.
 	template<typename T>
 	class base_sequence {
 		protected:

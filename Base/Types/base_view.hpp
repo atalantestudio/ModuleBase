@@ -10,20 +10,27 @@ namespace atl {
 			/// Constructs an empty view.
 			base_view() = default;
 
-			/// Constructs a view of 1 element.
-			constexpr base_view(const T& element) :
-				base_view<T>(&element, 1)
+			/// Constructs a view of a single element.
+			constexpr base_view(const T& data) :
+				base_view<T>(&data, 1)
 			{}
 
-			/// Constructs a view of the first `count` elements pointed by `data`.
-			constexpr explicit base_view(const T* data, uint64 count) :
-				_count(count),
+			/// Constructs a view of a static array of C elements.
+			template<uint64 C>
+			constexpr base_view(const T (&data)[C]) :
+				_count(C),
 				_data(data)
 			{}
 
-			/// Constructs a view covering the full range of `sequence`.
+			/// Constructs a view of a dynamically allocated sequence.
 			base_view(const base_sequence<T>& sequence) :
 				base_view<T>(&sequence[0], sequence.count())
+			{}
+
+			/// Constructs a view of the first `count` elements, starting at `data`.
+			constexpr explicit base_view(const T* data, uint64 count) :
+				_count(count),
+				_data(data)
 			{}
 
 			uint64 count() const {
